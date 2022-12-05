@@ -4,6 +4,7 @@ from django.db import models
 class Article(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
+    slug = models.TextField(max_length=40)
 
     # Add in thumbnail and author later
     def __str__(self):
