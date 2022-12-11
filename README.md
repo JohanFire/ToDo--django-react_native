@@ -51,7 +51,7 @@ render data into json
 ```python
 
     ...
-    
+
     json = JSONRenderer().render(serializer.data)
     json
 b'{"title":"Titulo del articulo","description":"esta es la descripcion"}'
@@ -64,4 +64,19 @@ b'{"title":"Titulo del articulo","description":"esta es la descripcion"}'
 True
     serializer.validated_data
 OrderedDict([('title', 'Titulo del articulo'), ('description', 'esta es la descripcion')])
+```
+
+---
+
+## Model Serializer
+`python manage.py shell`
+```python
+>>> from api_rest.serializers import ArticleSerializer
+>>> serializer = ArticleSerializer()
+>>> print(repr(serializer)) 
+ArticleSerializer():
+    id = IntegerField(label='ID', read_only=True)
+    title = CharField(max_length=100)
+    description = CharField(style={'base_template': 'textarea.html'})
+>>> 
 ```
