@@ -80,3 +80,7 @@ ArticleSerializer():
     description = CharField(style={'base_template': 'textarea.html'})
 >>> 
 ```
+
+---
+
+# Function Based API View
