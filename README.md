@@ -85,4 +85,4 @@ ArticleSerializer():
 
 # Function Based API View
 
-min 1:05:00
+min 1:14:00
