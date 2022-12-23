@@ -87,4 +87,11 @@ ArticleSerializer():
 we can also write our API views using class-based views. rather than function based views (as I did in the previous section).
 This is a powerfull pattern that allows us to reuse common functionality, and helps us to keep our code DRY (Don't Repeat Yourself).
 
-min 1:25:33
+---
+
+# Mixins
+One of the big wins of using class-based views is that it allows us to easily compose reusable bits of behaviour.
+
+The create/retrieve/update/delete operations that we've been using so far are going to be pretty similar for any model-backed API views we create. Those bits of common behaviour are implemented in REST framework's mixin classes.
+
+min 1:38:43

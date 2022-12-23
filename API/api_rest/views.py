@@ -2,17 +2,29 @@ from django.shortcuts import render, HttpResponse
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import APIView
+from rest_framework import generics, mixins
 
 from .models import Article
 from .serializers import ArticleSerializer
 
+class ArticleList(generics.GenericAPIView, mixins.ListModelMixin, mixins.CreateModelMixin):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+    def get(self, request):
+        return self.list(request)
+    
+    def post(self, request):
+        return self.create(request)
+
+"""
 class ArticleList(APIView):
     def get(self, request):
         articles = Article.objects.all()
         serializer = ArticleSerializer(articles, many=True)
         return Response(serializer.data)
     
-    def post(self, request):
+    def post(self, request): 
         serializer = ArticleSerializer(data=request.data)
 
         if serializer.is_valid():
@@ -20,6 +32,7 @@ class ArticleList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
         return Response(serializer.errs, status=status.HTTP_400_BAD_REQUEST)
+    """
 
 class ArticleDetails(APIView):
     def get_object(self, pk):
