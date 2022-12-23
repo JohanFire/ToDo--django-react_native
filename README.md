@@ -99,4 +99,19 @@ The create/retrieve/update/delete operations that we've been using so far are go
 # ViewSets & Routers
 REST framework includes an abstraction for dealing with ViewSets, that allows the developer to concentrate on modeling the state and interactions of the API, and leave the URL construction to be handled automatically, based on common conventions.
 
+## ViewSets
+The ViewSet class inherits from APIView. You can use any of the standard attributes such as permission_classes, authentication_classes in order to control the API policy on the viewset.
+
+The ViewSet class does not provide any implementations of actions. In order to use a ViewSet class you'll override the class and define the action implementations explicitly.
+
+## GenericViewSet
+The GenericViewSet class inherits from GenericAPIView, and provides the default set of get_object, get_queryset methods and other generic view base behavior, but does not include any actions by default.
+
+In order to use a GenericViewSet class you'll override the class and either mixin the required mixin classes, or define the action implementations explicitly.
+
+## ModelViewSet
+The ModelViewSet class inherits from GenericAPIView and includes implementations for various actions, by mixing in the behavior of the various mixin classes.
+
+The actions provided by the ModelViewSet class are .list(), .retrieve(), .create(), .update(), .partial_update(), and .destroy().
+
 min 1:50:37
