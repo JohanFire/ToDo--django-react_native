@@ -83,6 +83,8 @@ ArticleSerializer():
 
 ---
 
-# Function Based API View
+# Class-based Views in Django Rest Framework
+we can also write our API views using class-based views. rather than function based views (as I did in the previous section).
+This is a powerfull pattern that allows us to reuse common functionality, and helps us to keep our code DRY (Don't Repeat Yourself).
 
-min 1:16:06
+min 1:25:33
