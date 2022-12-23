@@ -114,4 +114,8 @@ The ModelViewSet class inherits from GenericAPIView and includes implementations
 
 The actions provided by the ModelViewSet class are .list(), .retrieve(), .create(), .update(), .partial_update(), and .destroy().
 
+---
+
+# React Native
+
 min 2:18:51

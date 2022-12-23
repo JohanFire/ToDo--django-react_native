@@ -10,5 +10,5 @@ router.register("articles", ArticleViewSet, basename="articles")
 
 urlpatterns = [
     path("", views.index, name="index"),   
-    path("", include(router.urls))
+    path("api/", include(router.urls))
 ]
