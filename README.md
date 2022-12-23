@@ -94,4 +94,9 @@ One of the big wins of using class-based views is that it allows us to easily co
 
 The create/retrieve/update/delete operations that we've been using so far are going to be pretty similar for any model-backed API views we create. Those bits of common behaviour are implemented in REST framework's mixin classes.
 
-min 1:38:43
+---
+
+# ViewSets & Routers
+REST framework includes an abstraction for dealing with ViewSets, that allows the developer to concentrate on modeling the state and interactions of the API, and leave the URL construction to be handled automatically, based on common conventions.
+
+min 1:50:37

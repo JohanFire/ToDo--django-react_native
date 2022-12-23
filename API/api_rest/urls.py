@@ -1,10 +1,14 @@
-from django.urls import path
+from django.urls import path, include
+# from .views import ArticleList, ArticleDetails 
+from rest_framework.routers import DefaultRouter
+
 from . import views
-# from .views import article_list, article_details
-from .views import ArticleList, ArticleDetails 
+from .views import ArticleViewSet
+
+router = DefaultRouter()
+router.register("articles", ArticleViewSet, basename="articles")
 
 urlpatterns = [
     path("", views.index, name="index"),   
-    path("articles/", ArticleList.as_view()),
-    path("articles/<int:id>/", ArticleDetails.as_view()),
+    path("", include(router.urls))
 ]
