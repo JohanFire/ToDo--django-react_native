@@ -114,4 +114,4 @@ The ModelViewSet class inherits from GenericAPIView and includes implementations
 
 The actions provided by the ModelViewSet class are .list(), .retrieve(), .create(), .update(), .partial_update(), and .destroy().
 
-min 1:50:37
+min 2:18:51

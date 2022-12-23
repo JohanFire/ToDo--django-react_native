@@ -9,9 +9,9 @@ from django.shortcuts import get_object_or_404
 from .models import Article
 from .serializers import ArticleSerializer
 
-# using viewsets.GenericViewSet
-# all methods are available without writing them, usign GnericViewSet & mixins
-class ArticleViewSet(viewsets.GenericViewSet, mixins.ListModelMixin, mixins.CreateModelMixin, mixins.UpdateModelMixin, mixins.RetrieveModelMixin, mixins.DestroyModelMixin):
+# using viewsets.ModelViewSet
+# all methods are available without writing them, usign ModelViewSet
+class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
