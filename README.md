@@ -137,4 +137,10 @@ To run your project, navigate to the directory and run one of the following npm 
 - npm run web
 
 
+## Install react-native-paper
+https://callstack.github.io/react-native-paper/getting-started.html
+```bash
+    npm install react-native-paper
+```
+
 min 2:33:50
