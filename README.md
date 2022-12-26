@@ -137,4 +137,4 @@ To run your project, navigate to the directory and run one of the following npm 
 - npm run web
 
 
-min 2:32:20
+min 2:33:50
