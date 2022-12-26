@@ -150,4 +150,11 @@ https://callstack.github.io/react-native-paper/getting-started.html
 you can send data through components with props.
 props are inmutable and not changeable
 
+so if you want to change the value of the argument, you can use:
+
+---
+
+## State
+you can use state to change the value of the argument
+
 min 2:53:07
