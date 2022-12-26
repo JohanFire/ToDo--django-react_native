@@ -136,6 +136,7 @@ To run your project, navigate to the directory and run one of the following npm 
 - npm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
 - npm run web
 
+---
 
 ## Install react-native-paper
 https://callstack.github.io/react-native-paper/getting-started.html
@@ -143,4 +144,10 @@ https://callstack.github.io/react-native-paper/getting-started.html
     npm install react-native-paper
 ```
 
-min 2:33:50
+---
+
+## Props
+you can send data through components with props.
+props are inmutable and not changeable
+
+min 2:53:07
