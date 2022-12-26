@@ -7,7 +7,7 @@ import Home from './Screens/Home'
 export default function App() {
     return (
         <View style={styles.container}>
-            <Home />
+            <Home name="Johan" />
             <StatusBar style="auto" />
         </View>
     );

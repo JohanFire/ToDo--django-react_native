@@ -3,10 +3,10 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Card } from 'react-native-paper'
 
-function Home() {
+function Home(props) {
     return (
         <Card style={styles.cardStyle}>
-            <Text>Home screen</Text>
+            <Text>Home screen, hello {props.name}!</Text>
         </Card>
     )
 }
