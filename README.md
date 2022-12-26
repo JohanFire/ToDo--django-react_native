@@ -118,4 +118,23 @@ The actions provided by the ModelViewSet class are .list(), .retrieve(), .create
 
 # React Native
 
-min 2:18:51
+## Create a new Expo project
+```bash
+    npx create-expo-app project-name
+```
+
+## Run the project
+```bash
+    cd project-name
+    npm start # you can also use: npx expo start
+```
+or...
+To run your project, navigate to the directory and run one of the following npm commands.
+
+- cd project-name
+- npm run android
+- npm run ios # you need to use macOS to build the iOS project - use the Expo app if you need to do iOS development without a Mac
+- npm run web
+
+
+min 2:32:20
