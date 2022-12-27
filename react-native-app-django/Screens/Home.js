@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { StyleSheet, Text, View, Button } from 'react-native'
 import { Card } from 'react-native-paper'
 
-function Home() {
+export default function Home() {
     const [name, setName] = useState("Johan")
 
     return (
@@ -21,5 +21,3 @@ const styles = StyleSheet.create({
         margin: 10,
     }
 })
-
-export default Home
