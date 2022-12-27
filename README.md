@@ -163,4 +163,12 @@ you can use state to change the value of the argument
 
 ## Functional Component
 
+---
+
+## FlatList
+has scroll 
+
+
+
+
 min 2:53:07
