@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, Button, FlatList, Alert } from 'react-native'
 import { Card, FAB } from 'react-native-paper'
 
-export default function Home() {
+export default function Home(props) {
     const [name, setName] = useState("Johan")
     const [data, setData] = useState()
     const [loading, setLoading] = useState(true)
@@ -48,7 +48,7 @@ export default function Home() {
             <FAB style={styles.fab}
                 small={false}
                 icon="plus"
-                onPress={() => console.log("Pressed")}
+                onPress={() => console.log("Pressed", props.navigation.navigate("Create"))}
             />
         </View>
     )

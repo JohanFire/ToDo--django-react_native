@@ -180,4 +180,33 @@ has scroll
 ```
 had to change the port of the api to this one, because the default one was giving problems
 
-min 3:30:33 CHECAR EN QUE BRANCH ESTOY
+---
+
+## React Native Navigation
+https://reactnavigation.org/docs/getting-started
+### 1.- install React Navigation
+```bash
+    npm install @react-navigation/native
+```
+
+### 2.- install necessary dependencies
+
+dependencies if using Expo:
+`npx expo install react-native-screens react-native-safe-area-context`
+
+dependencies if using React Native CLI:
+`npm install react-native-screens react-native-safe-area-context`
+
+### 3.- Install Stack Navigator
+__also need to install stack Navigator__
+https://reactnavigation.org/docs/stack-navigator/
+
+Expo:
+`npm install @react-navigation/stack`
+
+React Native CLI:
+`npm install react-native-gesture-handler`
+
+---
+
+min 3:49:49 CHECAR EN QUE BRANCH ESTOY
