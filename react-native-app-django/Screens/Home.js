@@ -1,7 +1,7 @@
 // type "rce" snippet to create a class component
 import React, { useState } from 'react'
 import { StyleSheet, Text, View, Button, FlatList } from 'react-native'
-import { Card } from 'react-native-paper'
+import { Card, FAB } from 'react-native-paper'
 
 const myData = [
     { id: 1, title: "First Title", description: "First Description" },
@@ -31,16 +31,23 @@ export default function Home() {
     const [name, setName] = useState("Johan")
 
     return (
-        <Card style={styles.cardStyle}>
-            <Text style={styles.titleList}>{name}'s List</Text>
-            <FlatList data={myData}
-                renderItem={(item) => {
-                    console.log(item)
-                    return renderData(item.item)
-                }}
-                keyExtractor={item => item.id}
+        <View>
+            <Card style={styles.cardStyle}>
+                <Text style={styles.titleList}>{name}'s List</Text>
+                <FlatList data={myData}
+                    renderItem={(item) => {
+                        console.log(item)
+                        return renderData(item.item)
+                    }}
+                    keyExtractor={item => item.id}
+                />
+            </Card>
+            <FAB style={styles.fab}
+                small={false}
+                icon="plus"
+                onPress={() => console.log("Pressed")}
             />
-        </Card>
+        </View>
     )
 }
 
@@ -60,5 +67,12 @@ const styles = StyleSheet.create({
     },
     descriptionFlatList: {
         fontSize: 14,
+    },
+    fab: {
+        position: "absolute",
+        margin: 16,
+        right: 0,
+        bottom: 0,
+        backgroundColor: "#2dd26e",
     }
 })
