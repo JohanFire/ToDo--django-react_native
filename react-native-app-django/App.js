@@ -3,11 +3,13 @@ import { StyleSheet, Text, View } from 'react-native';
 import Constants from 'expo-constants';
 
 import Home from './Screens/Home'
+import Create from './Screens/Create'
 
 export default function App() {
     return (
         <View style={styles.container}>
-            <Home />
+            {/* <Home /> */}
+            <Create />
             <StatusBar style="auto" />
         </View  >
     );

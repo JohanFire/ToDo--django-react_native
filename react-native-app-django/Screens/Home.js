@@ -34,7 +34,7 @@ export default function Home() {
     return (
         <View>
             <Card style={styles.cardStyle}>
-                <Text style={styles.titleList}>{name}'s List</Text>
+                <Text style={styles.titleList}>{name}'s ToDo List</Text>
                 <FlatList
                     data={data}
                     renderItem={(item) => {
