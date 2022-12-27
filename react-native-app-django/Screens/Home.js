@@ -6,17 +6,23 @@ import { Card, FAB } from 'react-native-paper'
 export default function Home() {
     const [name, setName] = useState("Johan")
     const [data, setData] = useState()
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
+        get_data();
+    }, [])
+
+    const get_data = () => {
         fetch("http://192.168.56.1:80/api/articles/", {
             method: "GET"
         }).then(res => res.json())
             .then(data => {
                 setData(data)
+                setLoading(false)
             }).catch(err => { Alert.alert("Something went wrong", err) })
-    }, [])
+    };
 
-    const renderData = (item) => {
+    const render_data = (item) => {
         return (
             <Card style={[styles.elementCardStyle, { backgroundColor: '#96c7c3' }]}>
                 <Text style={styles.titleFlatList} >{item.title}</Text>
@@ -32,8 +38,10 @@ export default function Home() {
                 <FlatList
                     data={data}
                     renderItem={(item) => {
-                        return renderData(item.item)
+                        return render_data(item.item)
                     }}
+                    onRefresh={() => { get_data() }}
+                    refreshing={loading}
                     keyExtractor={item => item.id}
                 />
             </Card>
