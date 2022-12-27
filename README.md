@@ -172,6 +172,10 @@ has scroll
 
 ## Floating Action Button
 
+---
 
+## Fetching data from API
+python manage.py runserver 192.168.56.1:80
+had to change the port of the api to this one, because the default one was giving problems
 
 min 3:10:20
