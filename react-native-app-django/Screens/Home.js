@@ -3,24 +3,9 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, Button, FlatList, Alert } from 'react-native'
 import { Card, FAB } from 'react-native-paper'
 
-const myHardCodedData = [
-    { id: 1, title: "First Title", description: "First Description" },
-    { id: 2, title: "Second Title", description: "Second Description" },
-    { id: 3, title: "Third Title", description: "Third Description" },
-    // { id: 4, title: "Fourth Title", description: "Fourth Description" },
-    // { id: 5, title: "Fifth Title", description: "Fifth Description" },
-    // { id: 6, title: "Sixth Title", description: "Third Description" },
-    // { id: 7, title: "Seventh Title", description: "Seventh Description" },
-    // { id: 8, title: "Eighth Title", description: "EightDescription" },
-    // { id: 9, title: "Nineth Title", description: "Nineth Description" },
-    // { id: 10, title: "Tenth Title", description: "TenthDescription" },
-    // { id: 11, title: "Eleventh Title", description: "Eleventh Description" },
-    // { id: 12, title: "Twelfth Title", description: "Twelfth Description" },
-]
-
 export default function Home() {
     const [name, setName] = useState("Johan")
-    const [data, setData] = useState([{ title: "Title from API" }])
+    const [data, setData] = useState()
 
     useEffect(() => {
         fetch("http://192.168.56.1:80/api/articles/", {
@@ -33,7 +18,7 @@ export default function Home() {
 
     const renderData = (item) => {
         return (
-            <Card style={styles.cardStyle}>
+            <Card style={[styles.elementCardStyle, { backgroundColor: '#96c7c3' }]}>
                 <Text style={styles.titleFlatList} >{item.title}</Text>
                 <Text style={styles.descriptionFlatList} >{item.description}</Text>
             </Card>
@@ -63,8 +48,13 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     cardStyle: {
+        padding: 5,
+        margin: 20,
+    },
+    elementCardStyle: {
         padding: 10,
         margin: 10,
+        backgroundColor: "#96c7c3",
     },
     titleList: {
         textAlign: "center",
