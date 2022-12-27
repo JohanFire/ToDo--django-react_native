@@ -1,12 +1,16 @@
 // type "rce" snippet to create a class component
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet, Text, View, Button } from 'react-native'
 import { Card } from 'react-native-paper'
 
-function Home(props) {
+function Home() {
+    const [name, setName] = useState("Johan")
+
     return (
         <Card style={styles.cardStyle}>
-            <Text>Home screen, hello {props.name}!</Text>
+            <Text style={{ fontSize: 20 }}>Home screen, hello {name}!</Text>
+            <Button title='Click Me'
+                onPress={() => setName("changedName", console.log('you clicked the button',))} />
         </Card>
     )
 }

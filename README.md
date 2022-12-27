@@ -146,7 +146,9 @@ https://callstack.github.io/react-native-paper/getting-started.html
 
 ---
 
-## Props
+## Send data through components & classes
+
+### Props
 you can send data through components with props.
 props are inmutable and not changeable
 
@@ -154,7 +156,11 @@ so if you want to change the value of the argument, you can use:
 
 ---
 
-## State
+### State
 you can use state to change the value of the argument
+
+---
+
+## Functional Component
 
 min 2:53:07
