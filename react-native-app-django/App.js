@@ -9,12 +9,20 @@ import Create from './Screens/Create'
 
 const Stack = createStackNavigator();
 
+const myStyle = {
+    title: 'ToDo List',
+    headerTintColor: '#fff',
+    headerStyle: {
+        backgroundColor: '#479070',
+    }
+}
+
 function App() {
     return (
         <View style={styles.container}>
             <Stack.Navigator>
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Create" component={Create} />
+                <Stack.Screen name="Home" component={Home} options={myStyle} />
+                <Stack.Screen name="Create" component={Create} options={{ ...myStyle, title: "Create" }} />
             </Stack.Navigator>
             <StatusBar style="auto" />
         </View  >

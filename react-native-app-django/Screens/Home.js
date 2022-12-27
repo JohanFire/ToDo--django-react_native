@@ -32,9 +32,9 @@ export default function Home(props) {
     }
 
     return (
-        <View>
+        <View style={{ backgroundColor: '#47907e' }}>
             <Card style={styles.cardStyle}>
-                <Text style={styles.titleList}>{name}'s ToDo List</Text>
+                {/* <Text style={styles.titleList}>{name}'s ToDo List</Text> */}
                 <FlatList
                     data={data}
                     renderItem={(item) => {
@@ -48,7 +48,7 @@ export default function Home(props) {
             <FAB style={styles.fab}
                 small={false}
                 icon="plus"
-                onPress={() => console.log("Pressed", props.navigation.navigate("Create"))}
+                onPress={() => console.log("Create button pressed.", props.navigation.navigate("Create"))}
             />
         </View>
     )
