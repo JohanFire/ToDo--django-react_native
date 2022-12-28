@@ -3,20 +3,22 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Button } from 'react-native-paper'
 
 export default function ToDoDetails(props) {
-    const { id, title, description, slug } = props.route.params.item
+    const item = props.route.params.item
+    // const { id, title, description, slug } = props.route.params.item
 
     return (
         <ScrollView>
             <View style={styles.details}>
-                <Text style={styles.titleDetails}>{title}</Text>
-                <Text style={styles.slugDetails}>#{slug}</Text>
-                <Text style={styles.descriptionDetails}>{description}</Text>
+                <Text style={styles.titleDetails}>{item.title}</Text>
+                <Text style={styles.slugDetails}>#{item.slug}</Text>
+                <Text style={styles.descriptionDetails}>{item.description}</Text>
                 <View style={styles.btnStyle}>
                     <Button style={{ backgroundColor: "#1f533e", borderRadius: 4 }}
                         icon="update"
                         mode="contained"
-                        onPress={() => console.log("Update button pressed")}
-                    >Update</Button>
+                        // onPress={() => console.log("Update button pressed")}
+                        onPress={() => props.navigation.navigate("EditToDo", { item: item })}
+                    > Update</Button>
                     <Button style={{ backgroundColor: "#960d0b", borderRadius: 4 }}
                         icon="delete"
                         mode='contained'
@@ -24,7 +26,7 @@ export default function ToDoDetails(props) {
                     >Delete</Button>
                 </View>
             </View >
-        </ScrollView>
+        </ScrollView >
     )
 }
 
