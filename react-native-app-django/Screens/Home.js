@@ -12,6 +12,12 @@ export default function Home(props) {
         get_data();
     }, [])
 
+    const clickedItem = (item) => {
+        console.log('ToDo Detail button pressed.');
+        props.navigation.navigate("Details", { item })
+        console.log(item);
+    }
+
     const get_data = () => {
         fetch("http://192.168.56.1:80/api/articles/", {
             method: "GET"
@@ -24,7 +30,9 @@ export default function Home(props) {
 
     const render_data = (item) => {
         return (
-            <Card style={[styles.elementCardStyle, { backgroundColor: '#96c7c3' }]}>
+            <Card style={[styles.elementCardStyle, { backgroundColor: '#96c7c3' }]}
+                onPress={() => clickedItem(item)}
+            >
                 <Text style={styles.titleFlatList} >{item.title}</Text>
                 <Text style={styles.descriptionFlatList} >{item.description}</Text>
             </Card>

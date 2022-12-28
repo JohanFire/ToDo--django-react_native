@@ -6,6 +6,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Home from './Screens/Home'
 import Create from './Screens/Create'
+import ToDoDetails from './Screens/ToDoDetails'
 
 const Stack = createStackNavigator();
 
@@ -23,6 +24,7 @@ function App() {
             <Stack.Navigator>
                 <Stack.Screen name="Home" component={Home} options={myStyle} />
                 <Stack.Screen name="Create" component={Create} options={{ ...myStyle, title: "Create" }} />
+                <Stack.Screen name="Details" component={ToDoDetails} options={{ ...myStyle, title: "Details" }} />
             </Stack.Navigator>
             <StatusBar style="auto" />
         </View  >
