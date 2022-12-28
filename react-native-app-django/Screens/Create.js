@@ -5,6 +5,7 @@ import { TextInput, Button } from 'react-native-paper'
 export default function Create() {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
+    const [slug, setSlug] = useState("")
 
     return (
         <View>
@@ -14,6 +15,13 @@ export default function Create() {
                 value={title}
                 mode="outlined"
                 onChangeText={text => setTitle(text)}
+            />
+            <TextInput style={styles.inputSlug}
+                label={"Slug"}
+                value={slug}
+                mode="outlined"
+                numberOfLines={1}
+                onChangeText={text => setSlug(text)}
             />
             <TextInput style={styles.inputDescription}
                 label={"Description"}
@@ -47,6 +55,12 @@ const styles = StyleSheet.create({
     inputDescription: {
         padding: 5,
         margin: 10,
+    },
+    inputSlug: {
+        padding: 5,
+        margin: 10,
+        marginTop: -8,
+        marginBottom: 4,
     },
     button: {
         backgroundColor: "#1f533e",
