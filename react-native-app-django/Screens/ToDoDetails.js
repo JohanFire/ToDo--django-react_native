@@ -1,10 +1,20 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, Alert } from 'react-native'
 import { Button } from 'react-native-paper'
 
 export default function ToDoDetails(props) {
     const item = props.route.params.item
     // const { id, title, description, slug } = props.route.params.item
+
+    const deleted_data = () => {
+        fetch(`http://192.168.56.1:80/api/articles/${item.id}/`, {
+            method: "DELETE",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then(item => { props.navigation.navigate("Home") })
+            .catch(err => { Alert.alert("Something went wrong", err) })
+    };
 
     return (
         <ScrollView>
@@ -22,7 +32,7 @@ export default function ToDoDetails(props) {
                     <Button style={{ backgroundColor: "#960d0b", borderRadius: 4 }}
                         icon="delete"
                         mode='contained'
-                        onPress={() => console.log("Delete button pressed")}
+                        onPress={() => deleted_data(item)}
                     >Delete</Button>
                 </View>
             </View >
