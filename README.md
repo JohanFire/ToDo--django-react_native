@@ -208,5 +208,3 @@ React Native CLI:
 `npm install react-native-gesture-handler`
 
 ---
-
-min 3:53:12 CHECAR EN QUE BRANCH ESTOY
