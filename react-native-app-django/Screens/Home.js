@@ -34,6 +34,7 @@ export default function Home(props) {
                 onPress={() => clickedItem(item)}
             >
                 <Text style={styles.titleFlatList} >{item.title}</Text>
+                <Text style={styles.slugFlatList} >{item.slug}</Text>
                 <Text style={styles.descriptionFlatList} >{item.description}</Text>
             </Card>
         )
@@ -83,6 +84,9 @@ const styles = StyleSheet.create({
     },
     descriptionFlatList: {
         fontSize: 14,
+    },
+    slugFlatList: {
+        fontSize: 10,
     },
     fab: {
         position: "absolute",
