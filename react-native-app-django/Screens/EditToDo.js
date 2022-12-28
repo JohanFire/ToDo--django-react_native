@@ -6,6 +6,19 @@ export default function EditToDo(props) {
     const data = props.route.params.item
     const [title, setTitle] = useState(data.title)
     const [description, setDescription] = useState(data.description)
+    const [slug, setSlug] = useState(data.slug)
+
+    const update_data = () => {
+        fetch(`http://192.168.56.1:80/api/articles/${data.id}/`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: title, description: description, slug: slug })
+        }).then(res => res.json())
+            .then(data => { props.navigation.navigate("Home", { data: data }) })
+            .catch(err => { Alert.alert("Something went wrong", err) })
+    };
 
     return (
         <View>
@@ -16,6 +29,13 @@ export default function EditToDo(props) {
                 mode="outlined"
                 onChangeText={text => setTitle(text)}
             />
+            <TextInput style={styles.inputSlug}
+                label={"Slug"}
+                value={slug}
+                mode="outlined"
+                numberOfLines={1}
+                onChangeText={text => setSlug(text)}
+            />
             <TextInput style={styles.inputDescription}
                 label={"Description"}
                 value={description}
@@ -25,7 +45,7 @@ export default function EditToDo(props) {
                 onChangeText={text => setDescription(text)}
             />
             <Button style={styles.button}
-                onPress={() => console.log("Pressed")}
+                onPress={() => console.log("Save Update button pressed", update_data())}
                 mode="contained"
                 icon="content-save"
 
@@ -48,6 +68,12 @@ const styles = StyleSheet.create({
     inputDescription: {
         padding: 5,
         margin: 10,
+    },
+    inputSlug: {
+        padding: 5,
+        margin: 10,
+        marginTop: -8,
+        marginBottom: 4,
     },
     button: {
         backgroundColor: "#1f533e",
