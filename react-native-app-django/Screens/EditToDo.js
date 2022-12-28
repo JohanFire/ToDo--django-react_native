@@ -1,15 +1,28 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, Alert } from 'react-native'
 import { TextInput, Button } from 'react-native-paper'
 
-export default function Create() {
-    const [title, setTitle] = useState("")
-    const [description, setDescription] = useState("")
-    const [slug, setSlug] = useState("")
+export default function EditToDo(props) {
+    const data = props.route.params.item
+    const [title, setTitle] = useState(data.title)
+    const [description, setDescription] = useState(data.description)
+    const [slug, setSlug] = useState(data.slug)
+
+    const update_data = () => {
+        fetch(`http://192.168.56.1:80/api/articles/${data.id}/`, {
+            method: "PUT",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: title, description: description, slug: slug })
+        }).then(res => res.json())
+            .then(data => { props.navigation.navigate("Home", { data: data }) })
+            .catch(err => { Alert.alert("Something went wrong", err) })
+    };
 
     return (
         <View>
-            <Text style={styles.titleList} >Create new ToDo</Text>
+            {/* <Text style={styles.titleList} >EDIT TO DO</Text> */}
             <TextInput style={styles.inputTitle}
                 label="Title"
                 value={title}
@@ -32,7 +45,7 @@ export default function Create() {
                 onChangeText={text => setDescription(text)}
             />
             <Button style={styles.button}
-                onPress={() => console.log("Pressed")}
+                onPress={() => console.log("Save Update button pressed", update_data())}
                 mode="contained"
                 icon="content-save"
 
