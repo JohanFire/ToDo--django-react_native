@@ -2,10 +2,23 @@ import { View, Text, StyleSheet } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import { TextInput, Button } from 'react-native-paper'
 
-export default function Create() {
+export default function Create(props) {
     const [title, setTitle] = useState("")
     const [description, setDescription] = useState("")
     const [slug, setSlug] = useState("")
+
+    const create_data = () => {
+        fetch(`http://192.168.56.1:80/api/articles/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ title: title, description: description, slug: slug })
+        }).then(res => res.json())
+            .then(data => { props.navigation.navigate("Home", { data: data }) })
+            .catch(err => { Alert.alert("Something went wrong", err) })
+        console.log('Data INSERTED succesfully');
+    };
 
     return (
         <View>
@@ -32,7 +45,7 @@ export default function Create() {
                 onChangeText={text => setDescription(text)}
             />
             <Button style={styles.button}
-                onPress={() => console.log("Pressed")}
+                onPress={() => create_data()}
                 mode="contained"
                 icon="content-save"
 

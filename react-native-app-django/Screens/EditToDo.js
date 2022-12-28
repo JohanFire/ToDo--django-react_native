@@ -18,6 +18,7 @@ export default function EditToDo(props) {
         }).then(res => res.json())
             .then(data => { props.navigation.navigate("Home", { data: data }) })
             .catch(err => { Alert.alert("Something went wrong", err) })
+        console.log('Data UPDATED succesfully');
     };
 
     return (
@@ -45,7 +46,7 @@ export default function EditToDo(props) {
                 onChangeText={text => setDescription(text)}
             />
             <Button style={styles.button}
-                onPress={() => console.log("Save Update button pressed", update_data())}
+                onPress={() => update_data()}
                 mode="contained"
                 icon="content-save"
 
