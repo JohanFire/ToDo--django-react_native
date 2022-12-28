@@ -14,6 +14,7 @@ export default function ToDoDetails(props) {
             },
         }).then(item => { props.navigation.navigate("Home") })
             .catch(err => { Alert.alert("Something went wrong", err) })
+        console.log('Data DELETED succesfully');
     };
 
     return (
@@ -27,7 +28,7 @@ export default function ToDoDetails(props) {
                         icon="update"
                         mode="contained"
                         // onPress={() => console.log("Update button pressed")}
-                        onPress={() => props.navigation.navigate("EditToDo", { item: item })}
+                        onPress={() => props.navigation.navigate("EditToDo", { item: item }, console.log('Update button pressed.'))}
                     > Update</Button>
                     <Button style={{ backgroundColor: "#960d0b", borderRadius: 4 }}
                         icon="delete"

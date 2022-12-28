@@ -15,7 +15,6 @@ export default function Home(props) {
     const clickedItem = (item) => {
         console.log('ToDo Detail button pressed.');
         props.navigation.navigate("Details", { item })
-        console.log(item);
     }
 
     const get_data = () => {
